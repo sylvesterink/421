@@ -1,0 +1,14 @@
+Traditional Operating Rooms are inefficient and overcrowded. Patient data are not integrated and displayed to caregivers in a timely fashion, and turnover time between cases is lengthy.
+
+Technologies designed to impact procedural medicine are often introduced in isolation, usually failing to improve efficiency and safety, or reduce costs. Devices are often haphazardly introduced into a technologically complex environment. Integrating high technology components, however, is not sufficient to achieve the goal of better patient care; teamwork and communication in a high tech environment is equally essential.
+
+To address many of these problems, CIMIT pioneered the MGH “Operating Room of the Future” (ORF) project. The ORF is a living laboratory that explores new technology platforms and systems of care for performing minimally invasive surgical procedures. Accurate data capture and analysis, multidisciplinary teamwork, and thoughtful integration of technology are the building blocks in this environment that optimizes patient safety and comfort, staff satisfaction, and financial efficiency.
+
+The ORF is a testament to the power of collaboration. Launched in the Massachusetts General Hospital (MGH) in August of 2002, as a fully functional OR for minimally invasive procedures as well as for open surgery. It represents an extraordinary convergence of disciplines – clinicians, institutions, and private companies – all brought together by CIMIT, and major financial and intellectual investments by all parties. Advanced by critical partnerships, a number of pioneering programs are currently being explored in the ORF:
+
+    * Real-time workflow process improvement including parallel processing, novel IT architecture, asset management and patient tracking solutions;
+    * Clinical decision support systems combining patient-specific data with intelligent devices to create a perioperative zone of safety;
+    * Leading a national initiative on technology integration and open Plug-and-Play standards for medical devices; and
+    * Measuring outcomes to inform “evidence-based” OR facility design.
+
+With this living, working, flexible learning environment, CIMT and MGH clinicians have been altering surgical care delivery. Beyond the ORF per se, procedures and workflow techniques developed here have propagated to the conventional ORs and have improved them through education, as well as by raising expectations of what is possible and by evaluating and choosing the best of technologies. Through our research, we will understand factors for optimal facility design, technology requirements, and deliver specifications for optimal team design and training. Additionally, we expect to show reduced medical errors and improved patient comfort and post discharge follow-up.
