@@ -24,7 +24,7 @@ int main(int argc, const char *argv[])
     transform(fileContents.begin(), fileContents.end(), fileContents.begin(), ::tolower);
     removePunctuation(fileContents);
 
-    cout << fileContents << endl;
+    testNfa();
 
     return 0;
 }
@@ -39,7 +39,6 @@ bool readFile(const string &fileName, string &fileData)
     if (fin.is_open()) {
         while (!fin.eof()) {
             getline(fin, input);
-            cout << input << endl;
             fileData += input;
         }
     }
@@ -65,22 +64,8 @@ void removePunctuation(string &fileData)
 
 void testNfa()
 {
-    NfaNode* testNode = new NfaNode();
-    NfaNode* oldNode = NULL;
-
-    for (int i = 0; i < 5; i++) {
-        oldNode = testNode;
-        testNode = testNode->testInput(' ');
-
-        if (oldNode != NULL) {
-            delete oldNode;
-            oldNode = NULL;
-        }
-    }
-
-    if (testNode != NULL) {
-        delete testNode;
-        testNode = NULL;
-    }
-
+    StateMachine::setActiveState(STATE_Q0);
+    StateMachine::getActiveState()->readInput('o');
+    StateMachine::getActiveState()->readInput('p');
+    StateMachine::getActiveState()->readInput('e');
 }

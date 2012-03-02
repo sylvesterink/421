@@ -3,7 +3,7 @@ CFLAGS = -c -g -Wall -pedantic
 #CFLAGS = -c -s -O2 -Wall -pedantic
 LIB = -lm
 LDFLAGS = -L.
-SOURCES = main.cpp NfaNode.cpp
+SOURCES = main.cpp StateMachine.cpp NfaNode.cpp NfaQ0.cpp NfaQ1.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = ProjectOne.exe
 

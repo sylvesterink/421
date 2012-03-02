@@ -1,13 +1,10 @@
 #include "StateMachine.h"
 
-// Refer to your Other App States Here
-#include "NfaNode.h"
+// App States
 #include "NfaQ0.h"
 #include "NfaQ1.h"
-#include "NfaQf.h"
 
-//CAppState* CAppStateManager::ActiveAppState = 0;
-
+NfaNode* StateMachine::activeState = 0;
 
 void StateMachine::setActiveState(int appStateID) {
     if(activeState) {
@@ -16,15 +13,11 @@ void StateMachine::setActiveState(int appStateID) {
 
     // Also, add your App State Here so that the Manager can switch to it
     if(appStateID == STATE_Q0) {
-        //activeState = 0;
+        activeState = NfaQ0::getInstance();
     }
 
     if(appStateID == STATE_Q1) {
-        //activeState = ;
-    }
-
-    if(appStateID == STATE_QF) {
-        //activeState = ;
+        activeState = NfaQ1::getInstance();
     }
 
     if(activeState) {

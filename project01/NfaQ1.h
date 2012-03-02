@@ -3,18 +3,20 @@
 
 #include "NfaNode.h"
 
-class NfaQ1 : NfaNode
+class NfaQ1 : public NfaNode
 {
-public:
-    NfaQ1();
-    ~NfaQ1();
+    public:
+        static NfaQ1 instance;
 
-    virtual NfaNode* testInput(char inputChar);
+    public:
+        virtual void activate();
+        virtual void deactivate();
 
-private:
-    /* data */
+        virtual void readInput(char inputChar);
+
+        static NfaQ1* getInstance();
+    private:
+        /* data */
 };
 
-
-
-#endif /* end of include guard: NFAQ1_H */
+#endif /* end of include guard: NFAQ0_H */

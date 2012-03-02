@@ -1,18 +1,24 @@
+#include "NfaQ0.h"
+#include "StateMachine.h"
 
-NfaQ0::NfaQ0()
+NfaQ0 NfaQ0::instance;
+
+void NfaQ0::activate()
 {
-
 }
 
-NfaQ0::~NfaQ0()
+void NfaQ0::deactivate()
 {
-
 }
 
-//TODO: get rid of memory leak
-NfaNode* NfaQ0::testInput(char inputChar)
+void NfaQ0::readInput(char inputChar)
 {
-    cout << "This is Q0" << endl;
-    NfaNode* nextNode = new NfaQ1();
-    return nextNode;
+    cout << "q0" << endl;
+    if (inputChar == 'o') {
+        StateMachine::setActiveState(STATE_Q1);
+    }
+}
+
+NfaQ0* NfaQ0::getInstance() {
+    return &instance;
 }
