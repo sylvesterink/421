@@ -3,6 +3,7 @@
 // App States
 #include "NfaQ0.h"
 #include "NfaQ1.h"
+#include "NfaQ2.h"
 
 NfaNode* StateMachine::activeState = 0;
 
@@ -18,6 +19,10 @@ void StateMachine::setActiveState(int appStateID) {
 
     if(appStateID == STATE_Q1) {
         activeState = NfaQ1::getInstance();
+    }
+
+    if(appStateID == STATE_Q2) {
+      activeState = NfaQ2::getInstance();
     }
 
     if(activeState) {

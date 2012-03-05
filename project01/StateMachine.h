@@ -5,7 +5,8 @@
 
 enum {
     STATE_Q0,
-    STATE_Q1
+    STATE_Q1,
+    STATE_Q2
 };
 
 class StateMachine
