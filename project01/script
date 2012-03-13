@@ -1,0 +1,1 @@
+for i in *.txt; do ./ProjectOne.exe doc6.txt; done

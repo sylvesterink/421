@@ -7,34 +7,44 @@
 
 using namespace std;
 
-const string fileList[] = {"doc1.txt", "doc2.txt", "doc3.txt", "doc4.txt", "doc5.txt", "doc6.txt"};
+enum {
+    NOT_FOUND,
+    SYSTEM_FOUND,
+    ROOM_FOUND
+};
 
-bool readFile(const string &fileName, string &fileData);
+bool readFile(const char *fileName, string &fileData);
 void removePunctuation(string &fileData);
-void testNfa();
+void testNfa(string &contents);
 
 int main(int argc, const char *argv[])
 {
     string fileContents = "";
 
-    if (!readFile(fileList[0], fileContents)) {
+    if (argc < 2) {
+        cout << "Usage: " << argv[0] << " [FILE NAME]" << endl;
         return -1;
     }
 
+    if (!readFile(argv[1], fileContents)) {
+        return -1;
+    }
+
+    cout << argv[1] << endl;
     transform(fileContents.begin(), fileContents.end(), fileContents.begin(), ::tolower);
     removePunctuation(fileContents);
 
-    testNfa();
+    testNfa(fileContents);
 
     return 0;
 }
 
-bool readFile(const string &fileName, string &fileData)
+bool readFile(const char *fileName, string &fileData)
 {
     ifstream fin;
     string input;
 
-    fin.open(fileName.c_str());
+    fin.open(fileName);
 
     if (fin.is_open()) {
         while (!fin.eof()) {
@@ -62,10 +72,34 @@ void removePunctuation(string &fileData)
     }
 }
 
-void testNfa()
+void testNfa(string &contents)
 {
+    bool foundRoom = false;
+    bool foundSystem = false;
+
+    contents += " ";
+
     StateMachine::setActiveState(STATE_Q0);
-    StateMachine::getActiveState()->readInput('o');
-    StateMachine::getActiveState()->readInput('p');
-    StateMachine::getActiveState()->readInput('e');
+
+    for (unsigned int i = 0; i < contents.size(); i++) {
+        NfaNode* activeState = StateMachine::getActiveState();
+        int output = activeState->readInput(contents[i]);
+
+        if ((output == ROOM_FOUND) && (!foundRoom)) {
+            foundRoom = true;
+        }
+        if ((output == SYSTEM_FOUND) && (!foundSystem)) {
+            foundSystem = true;
+        }
+    }
+
+    if ( foundRoom ) {
+        cout << "-\"operating room\" found" << endl;
+    }
+    if ( foundSystem ) {
+        cout << "-\"operating system\" found" << endl;
+    }
+    if ( !foundRoom && !foundSystem ) {
+        cout << "-NO MATCH" << endl;
+    }
 }

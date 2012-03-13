@@ -10,10 +10,7 @@ public:
     NfaNode();
     virtual ~NfaNode();
 
-    virtual void activate() = 0;
-    virtual void deactivate() = 0;
-
-    virtual void readInput(char inputChar) = 0;
+    virtual int readInput(char inputChar) = 0;
 
 private:
     /* data */
