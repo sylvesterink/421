@@ -1,13 +1,23 @@
 Readme
 
 To Compile:
- make
+    make
+
 To Run:
- ProjectOne.exe [FILE NAME] 
- [FILE NAME] should be the name of the file that you would like to search through.
- "operating system"/ "operating room" to check.
- When the file name is entered by the user the name of the file entered  
- along with "-operating system found" if the phrase operating system is within the text of the file.
- Or "-operating room found" if the phrase operating room is within the text of the file.
- If nither phrases are contained in the file "NO MATCH" is displayed. 
- 
+    ProjectOne.exe [FILE NAME]
+[FILE NAME] should be the name of the file that you would like to search through.
+
+Description:
+    The program outputs the name of the file searched, followed by the terms
+    that were found in the file (operating room, operating system), or
+    no match if neither term was found.
+
+Notes:
+    The attached executable is compiled for a 32-bit Linux system.
+
+Extra:
+    The following command will allow you to search all the text (.txt) files
+    that are in the same directory as the executable. (Useful for batch
+    testing.)
+    for i in *.txt; do ./ProjectOne.exe $i; done
+    This command assumes a Linux terminal.
