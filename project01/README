@@ -1,0 +1,13 @@
+Readme
+
+To Compile:
+ make
+To Run:
+ ProjectOne.exe [FILE NAME] 
+ [FILE NAME] should be the name of the file that you would like to search through.
+ "operating system"/ "operating room" to check.
+ When the file name is entered by the user the name of the file entered  
+ along with "-operating system found" if the phrase operating system is within the text of the file.
+ Or "-operating room found" if the phrase operating room is within the text of the file.
+ If nither phrases are contained in the file "NO MATCH" is displayed. 
+ 
