@@ -33,7 +33,7 @@ enum {
 // Function declarations
 bool readFile(const char *fileName, string &fileData);
 void removePunctuation(string &fileData);
-void testNfa(string &contents);
+void testNfa(string &fileData);
 
 /**
  * @brief Main function.  Checks passed arguments, then reads the file to a
@@ -58,15 +58,25 @@ int main(int argc, const char *argv[])
         return -1;
     }
 
+    // Display the file name, then convert characters to lowercase and
+    // remove punctuation
     cout << argv[1] << endl;
-    transform(fileContents.begin(), fileContents.end(), fileContents.begin(), ::tolower);
+    transform(fileContents.begin(), fileContents.end(),
+            fileContents.begin(), ::tolower);
     removePunctuation(fileContents);
 
+    // Uses NFA to check if file contains the required character sequence
     testNfa(fileContents);
 
     return 0;
 }
 
+/**
+ * @brief Reads a file and stores the data in a string
+ * @param fileName The name of the file to read
+ * @param fileData The string to store the file data in
+ * @return Whether the file was successfully read or not
+ */
 bool readFile(const char *fileName, string &fileData)
 {
     ifstream fin;
@@ -74,6 +84,7 @@ bool readFile(const char *fileName, string &fileData)
 
     fin.open(fileName);
 
+    // Read the file line by line into the string
     if (fin.is_open()) {
         while (!fin.eof()) {
             getline(fin, input);
@@ -86,13 +97,23 @@ bool readFile(const char *fileName, string &fileData)
 
     fin.close();
 
+    // A space is added to the end of the file to ensure that the state machine
+    // correctly interprets the end of the file
+    fileData += " ";
+
     return true;
 }
 
+/**
+ * @brief Replace any occurrences of punctuation in the data with a space
+ * @param fileData The text data
+ */
 void removePunctuation(string &fileData)
 {
     int stringSize = fileData.size();
 
+    // Iterate through each character and examine it
+    // Replace if it's a space
     for (int i = 0; i < stringSize; i++) {
         if ( ispunct(fileData[i]) ) {
             fileData[i] = ' ';
@@ -100,19 +121,27 @@ void removePunctuation(string &fileData)
     }
 }
 
-void testNfa(string &contents)
+/**
+ * @brief Run the data through the NFA and output whether the required text
+ *        was found.
+ * @param fileData The string data to test
+ */
+void testNfa(string &fileData)
 {
     bool foundRoom = false;
     bool foundSystem = false;
 
-    contents += " ";
-
+    // Set the initial state in the state machine
     StateMachine::setActiveState(STATE_Q0);
 
-    for (unsigned int i = 0; i < contents.size(); i++) {
+    // Iterate through the data, one character at a time and use the state
+    // machine to test the input
+    for (unsigned int i = 0; i < fileData.size(); i++) {
+        // The currently active state will be the state to test the data
         NfaNode* activeState = StateMachine::getActiveState();
-        int output = activeState->readInput(contents[i]);
+        int output = activeState->readInput(fileData[i]);
 
+        // If either occurrence is found, make a note of it
         if ((output == ROOM_FOUND) && (!foundRoom)) {
             foundRoom = true;
         }
@@ -121,6 +150,7 @@ void testNfa(string &contents)
         }
     }
 
+    // Output the success of the state machine
     if ( foundRoom ) {
         cout << "-\"operating room\" found" << endl;
     }

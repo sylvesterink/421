@@ -1,10 +1,22 @@
+/**
+ * @file StateMachine.cpp
+ * @brief The implementation of the state machine
+ * @author Brandon Kasa and Andrew Williams
+ * @version 1.0
+ * @date 2012-03-13
+ */
 #include "StateMachine.h"
 
 // App States
 #include "NfaStates.h"
 
+// Initialize the currently active state to be none.
 NfaNode* StateMachine::activeState = 0;
 
+/**
+ * @brief Switches to the appropriate state based on the state value passed.
+ * @param appStateID The name of the state to switch to
+ */
 void StateMachine::setActiveState(int appStateID) {
     switch(appStateID)
     {
@@ -65,13 +77,6 @@ void StateMachine::setActiveState(int appStateID) {
         case STATE_Q18:
             activeState = NfaQ18::getInstance();
             break;
-        //case STATE_Q19:
-            //activeState = NfaQ19::getInstance();
-            //break;
-        //case STATE_Q20:
-            //activeState = NfaQ20::getInstance();
-        //case STATE_Q21:
-            //activeState = NfaQ21::getInstance();
         case STATE_QF:
             activeState = NfaQF::getInstance();
             break;
@@ -79,20 +84,12 @@ void StateMachine::setActiveState(int appStateID) {
             activeState = NfaQF2::getInstance();
             break;
     }
-    //// Also, add your App State Here so that the Manager can switch to it
-    //if(appStateID == STATE_Q0) {
-        //activeState = NfaQ0::getInstance();
-    //}
-
-    //if(appStateID == STATE_Q1) {
-        //activeState = NfaQ1::getInstance();
-    //}
-
-    //if(appStateID == STATE_Q2) {
-      //activeState = NfaQ2::getInstance();
-    //}
 }
 
+/**
+ * @brief Returns the currently active state
+ * @return The instance of the currently active state
+ */
 NfaNode* StateMachine::getActiveState() {
     return activeState;
 }

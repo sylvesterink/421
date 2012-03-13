@@ -1,14 +1,27 @@
+/**
+ * @file NfaStates.h
+ * @brief The declaration of all the states for this state machine
+ * @author Brandon Kasa and Andrew Williams
+ * @version 1.0
+ * @date 2012-03-13
+ */
 #ifndef NFASTATES_H
 #define NFASTATES_H
 
 #include "NfaNode.h"
 
+/**
+ * @brief Used to keep track of which final state was found
+ */
 enum {
     NOT_FOUND,
     SYSTEM_FOUND,
     ROOM_FOUND
 };
 
+/**
+ * @brief Declaration of the initial state
+ */
 class NfaQ0 : public NfaNode
 {
     public:
@@ -22,6 +35,9 @@ class NfaQ0 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 1
+ */
 class NfaQ1 : public NfaNode
 {
     public:
@@ -35,6 +51,9 @@ class NfaQ1 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 2
+ */
 class NfaQ2 : public NfaNode
 {
     public:
@@ -48,6 +67,9 @@ class NfaQ2 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 3
+ */
 class NfaQ3 : public NfaNode
 {
     public:
@@ -61,6 +83,9 @@ class NfaQ3 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 4
+ */
 class NfaQ4 : public NfaNode
 {
     public:
@@ -74,6 +99,9 @@ class NfaQ4 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 5
+ */
 class NfaQ5 : public NfaNode
 {
     public:
@@ -87,6 +115,9 @@ class NfaQ5 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 6
+ */
 class NfaQ6 : public NfaNode
 {
     public:
@@ -100,6 +131,9 @@ class NfaQ6 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 7
+ */
 class NfaQ7 : public NfaNode
 {
     public:
@@ -113,6 +147,9 @@ class NfaQ7 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 8
+ */
 class NfaQ8 : public NfaNode
 {
     public:
@@ -126,6 +163,9 @@ class NfaQ8 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 9
+ */
 class NfaQ9 : public NfaNode
 {
     public:
@@ -139,6 +179,9 @@ class NfaQ9 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 10
+ */
 class NfaQ10 : public NfaNode
 {
     public:
@@ -152,6 +195,9 @@ class NfaQ10 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 11
+ */
 class NfaQ11 : public NfaNode
 {
     public:
@@ -165,6 +211,9 @@ class NfaQ11 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 12
+ */
 class NfaQ12 : public NfaNode
 {
     public:
@@ -178,6 +227,9 @@ class NfaQ12 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 13
+ */
 class NfaQ13 : public NfaNode
 {
     public:
@@ -191,6 +243,9 @@ class NfaQ13 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 14
+ */
 class NfaQ14 : public NfaNode
 {
     public:
@@ -204,6 +259,9 @@ class NfaQ14 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 15
+ */
 class NfaQ15 : public NfaNode
 {
     public:
@@ -217,6 +275,9 @@ class NfaQ15 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 16
+ */
 class NfaQ16 : public NfaNode
 {
     public:
@@ -230,6 +291,9 @@ class NfaQ16 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 17
+ */
 class NfaQ17 : public NfaNode
 {
     public:
@@ -243,6 +307,9 @@ class NfaQ17 : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of state 18
+ */
 class NfaQ18 : public NfaNode
 {
     public:
@@ -256,45 +323,9 @@ class NfaQ18 : public NfaNode
         /* data */
 };
 
-class NfaQ19 : public NfaNode
-{
-    public:
-        static NfaQ19 instance;
-
-    public:
-        virtual int readInput(char inputChar);
-
-        static NfaQ19* getInstance();
-    private:
-        /* data */
-};
-
-//class NfaQ20 : public NfaNode
-//{
-    //public:
-        //static NfaQ20 instance;
-
-    //public:
-        //virtual int readInput(char inputChar);
-
-        //static NfaQ20* getInstance();
-    //private:
-        //[> data <]
-//};
-
-//class NfaQ21 : public NfaNode
-//{
-    //public:
-        //static NfaQ21 instance;
-
-    //public:
-        //virtual int readInput(char inputChar);
-
-        //static NfaQ21* getInstance();
-    //private:
-        //[> data <]
-//};
-
+/**
+ * @brief Declaration of the first final state
+ */
 class NfaQF : public NfaNode
 {
     public:
@@ -308,6 +339,9 @@ class NfaQF : public NfaNode
         /* data */
 };
 
+/**
+ * @brief Declaration of the second final state
+ */
 class NfaQF2 : public NfaNode
 {
     public:
