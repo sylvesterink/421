@@ -1,0 +1,15 @@
+Readme
+
+To Compile:
+    make
+
+To Run:
+    ProjectTwo.exe [FILE NAME]
+[FILE NAME] should be the name of the file that you would like to parse.
+
+Description:
+    The program outputs the name of the file parsed, followed by whether
+    the file has a valid if/else sequence.
+
+Notes:
+    The attached executable is compiled for a 32-bit Linux system.

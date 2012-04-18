@@ -39,9 +39,6 @@ void PdaMachine::setActiveState(int appStateID) {
         case STATE_QF:
             activeState = PdaQF::getInstance();
             break;
-        case STATE_0:
-            activeState = Pda0::getInstance();
-            break;
     }
     currAppState = appStateID;
 }

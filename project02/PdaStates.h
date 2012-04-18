@@ -27,7 +27,7 @@ class PdaQ0 : public PdaNode
         static PdaQ0 instance;
 
     public:
-        virtual void readInput(char inputChar);
+        virtual bool readInput(char inputChar);
 
         static PdaQ0* getInstance();
     private:
@@ -44,7 +44,7 @@ class PdaQF : public PdaNode
         static PdaQF instance;
 
     public:
-        virtual void readInput(char inputChar);
+        virtual bool readInput(char inputChar);
 
         static PdaQF* getInstance();
     private:
@@ -54,16 +54,16 @@ class PdaQF : public PdaNode
 /**
  * @brief Declaration of the fail state
  */
-class Pda0 : public PdaNode
-{
-    public:
-        static Pda0 instance;
+//class Pda0 : public PdaNode
+//{
+    //public:
+        //static Pda0 instance;
 
-    public:
-        virtual void readInput(char inputChar);
+    //public:
+        //virtual void readInput(char inputChar);
 
-        static Pda0* getInstance();
-    private:
-        /* data */
-};
+        //static Pda0* getInstance();
+    //private:
+        //[> data <]
+//};
 #endif /* end of include guard: PDASTATES_H */

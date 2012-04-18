@@ -18,8 +18,7 @@ using namespace std;
  */
 enum {
     STATE_Q0,
-    STATE_QF,
-    STATE_0
+    STATE_QF
 };
 
 /**

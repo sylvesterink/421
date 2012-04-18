@@ -18,7 +18,7 @@ PdaQ0 PdaQ0::instance;
  * @param inputChar The character to test
  * @return Whether this is a final state or not
  */
-void PdaQ0::readInput(char inputChar)
+bool PdaQ0::readInput(char inputChar)
 {
     switch (inputChar) {
         case 'i':
@@ -27,7 +27,7 @@ void PdaQ0::readInput(char inputChar)
                 PdaMachine::push('s');
             }
             else {
-                PdaMachine::setActiveState(STATE_0);
+                return false;
             }
             break;
         case 'f':
@@ -36,7 +36,7 @@ void PdaQ0::readInput(char inputChar)
                 PdaMachine::push('e');
             }
             else {
-                PdaMachine::setActiveState(STATE_0);
+                return false;
             }
             break;
         case 'e':
@@ -44,7 +44,7 @@ void PdaQ0::readInput(char inputChar)
                 PdaMachine::pop();
             }
             else {
-                PdaMachine::setActiveState(STATE_0);
+                return false;
             }
             break;
         case 'l':
@@ -52,7 +52,7 @@ void PdaQ0::readInput(char inputChar)
                 PdaMachine::pop();
             }
             else {
-                PdaMachine::setActiveState(STATE_0);
+                return false;
             }
             break;
         case 's':
@@ -60,7 +60,7 @@ void PdaQ0::readInput(char inputChar)
                 PdaMachine::pop();
             }
             else {
-                PdaMachine::setActiveState(STATE_0);
+                return false;
             }
             break;
         case '$':  // Represents lambda, or empty string
@@ -69,6 +69,7 @@ void PdaQ0::readInput(char inputChar)
             }
             break;
     }
+    return true;
 }
 
 /**
@@ -89,9 +90,10 @@ PdaQF PdaQF::instance;
  * @param inputChar The character to test
  * @return Whether this is a final state or not
  */
-void PdaQF::readInput(char inputChar)
+bool PdaQF::readInput(char inputChar)
 {
-    PdaMachine::setActiveState(STATE_0);
+    //PdaMachine::setActiveState(STATE_0);
+    return false;
 }
 
 /**
@@ -102,8 +104,8 @@ PdaQF* PdaQF::getInstance() {
     return &instance;
 }
 
-// Declare an instance of this state
-Pda0 Pda0::instance;
+/*// Declare an instance of this state*/
+//Pda0 Pda0::instance;
 
 /**
  * @brief Since this is a final state, any new input will send it
@@ -111,16 +113,16 @@ Pda0 Pda0::instance;
  * @param inputChar The character to test
  * @return Whether this is a final state or not
  */
-void Pda0::readInput(char inputChar)
-{
-    // Do nothing but fail.
-}
+//void Pda0::readInput(char inputChar)
+//{
+    //// Do nothing but fail.
+//}
 
 /**
  * @brief Returns an instance of this state
  * @return The instance of this state
  */
-Pda0* Pda0::getInstance() {
-    return &instance;
-}
+//Pda0* Pda0::getInstance() {
+    //return &instance;
+//}
 

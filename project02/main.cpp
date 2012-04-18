@@ -80,6 +80,9 @@ bool readFile(const char *fileName, string &fileData)
 
     fin.close();
 
+    // Add a "lambda" symbol to simulate end of input
+    fileData += "$";
+
     return true;
 }
 
@@ -95,24 +98,15 @@ void testPda(string &fileData)
     PdaMachine::setActiveState(STATE_Q0);
 
     unsigned int i = 0;
-    bool isValid = true;
+    bool isRunning = true;
     PdaNode* activeState;
     // Iterate through the data, one character at a time and use the state
-    // machine to test the input
-    while ( (i < fileData.size()) && isValid) {
+    // machine to test the input.  If input fails, exit
+    while ( (i < fileData.size()) && isRunning) {
         activeState = PdaMachine::getActiveState();
-        activeState->readInput(fileData[i]);
+        isRunning = activeState->readInput(fileData[i]);
         i++;
     }
-    //for (unsigned int i = 0; i < fileData.size(); i++) {
-        //// The currently active state will be the state to test the data
-        //activeState = PdaMachine::getActiveState();
-        //activeState->readInput(fileData[i]);
-    //}
-
-    // Send "empty string" character to show sequence is done
-    activeState = PdaMachine::getActiveState();
-    activeState->readInput('$');
 
     // Output the success of the PDA
     if ( PdaMachine::isValid() ) {

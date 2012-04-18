@@ -23,7 +23,7 @@ public:
 
     // The function to read the character input must be implemented in the
     // derived state classes
-    virtual void readInput(char inputChar) = 0;
+    virtual bool readInput(char inputChar) = 0;
 
 private:
     /* data */
